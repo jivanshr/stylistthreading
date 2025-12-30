@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'SF-Pro-Display-Light';
   src: url('../fonts/SF-Pro-Display-Light.otf') format('opentype');
@@ -14,37 +13,164 @@
   src: url('../fonts/SF-Pro-Text-Regular.otf') format('opentype');
 }
 
-body { font-family:'SF-Pro-Text-Light';}
-.display-light { font-family: 'SF-Pro-Display-Light'; }
-.text-regular { font-family: 'SF-Pro-Text-Regular';}
-.text-light { font-family: 'SF-Pro-Text-Light';}
-
-.floral-list {/* Eyebrows Threading: */
-font-family: 'SF-Pro-Display-Light';
-font-size: 32px;
-color: #FF3B30;
+:root {
+  --bg-pink: #FFF0F5;
+  /* Lavender Blush */
+  --bg-white: #FFFFFF;
+  --text-charcoal: #333333;
+  --text-gray: #666666;
+  --accent-pink: #dfabb1;
+  --primary-red: #FF3B30;
+  /* Keeping the original red for accents/buttons if needed, or softer */
+  --button-hover: #ff6b6b;
+  --soft-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-.text-primary {
-color: #FF3B30;
- }
- .opacity-10 { opacity:0.1;}
- .bg-primary { background:#FF3B30;}
- .banner { height:400px}
- .services { height: 460px;}
- .services img { transition:.2s ease-in-out; }
- .services img:hover {transform:scale(1.05); }
 
- .has-dropdown { position: relative; cursor: pointer; z-index:50;;}
- .has-dropdown ul { opacity:0; transform:translateY(50px); transition:.2s ease-in-out; height:0; overflow: hidden;}
- .has-dropdown:hover  ul { opacity:1; transform:translateY(0); height: auto;}
+html {
+  scroll-behavior: smooth;
+}
 
- .bg-about { background: #f8f9fb url(../img/bg-about.jpg) no-repeat right top;
-  background-size: auto 600px; min-height:600px;}
+body {
+  font-family: 'SF-Pro-Text-Light', sans-serif;
+  color: var(--text-charcoal);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+}
 
- @media screen and (max-width:767px) {
-   .container { padding-left:16px; padding-right:16px;}
-  .banner { height:auto}
-  .floral-list { list-style: none; }
-  .services { height: auto;}
-  .bg-about  { min-height: auto; background: none;}
- }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'SF-Pro-Display-Light', sans-serif;
+  color: var(--text-charcoal);
+}
+
+.text-soft-pink {
+  color: var(--accent-pink);
+}
+
+.bg-soft-pink {
+  background-color: var(--bg-pink);
+}
+
+/* Navigation */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(-45deg, #FF1493, #FF0099, #FF77A9, #E60073);
+  background-size: 400% 400%;
+  animation: gradientBG 5s ease infinite;
+  /* height: 100vh; */
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Scroll Animation Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-book {
+  background-color: var(--primary-red);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 14px 0 rgba(255, 59, 48, 0.39);
+}
+
+.btn-book:hover {
+  transform: translateY(-2px);
+  background-color: var(--button-hover);
+}
+
+/* Services Grid */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--soft-shadow);
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.price-item:last-child {
+  border-bottom: none;
+}
+
+/* Verified Badge */
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e6fffa;
+  color: #2c7a7b;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Reviews */
+.review-card {
+  background: var(--bg-pink);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+/* Utilities */
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.display-light {
+  font-family: 'SF-Pro-Display-Light';
+}
